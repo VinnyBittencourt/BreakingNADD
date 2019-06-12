@@ -27,3 +27,26 @@ Código C#
 - Classe UNADD;
 - Classe Uprofessor;
 - Classe Usuario;
+
+
+O trabalho realizado considera os seguintes pontos em seu desenvolvimento:
+
+Utilização de:
+ - Classe abstrata;
+ - Interface;
+ - Polimorfismo de sobrecarga;
+ - Polimorfismo de sobrescrita;
+ - Padrão de projeto abstract factory (utilizado para fabricar questões);
+ 
+ Criação em banco de dados:
+  - População banco de dados;
+  - Views com:
+   - Subconsulta simples;
+   - Subconsulta complexa;
+   - Subconsulta utilizando a cláusula "ALL";
+   - Subconsulta utilizando a cláusula "ANY";
+   - Subconsulta utilizando a cláusula "IN";
+   - Consulta utilizando Left Join;
+   - Consulta utilizando Right Join;
+   - Consulta utilizando Full Outer Join;
+   - 2 blocos PL/SQL com uso da cláusula "%TYPE" e tratamento de exeption.
