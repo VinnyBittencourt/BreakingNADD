@@ -1,0 +1,119 @@
+﻿@model IEnumerable<NADD.Models.Avaliacao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeAvaliador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraConclusao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorProvaExp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorQuestExp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefBibliograficas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PQuestMultdisc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Eqdistvquest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ppquestcontext)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QtyQuestoes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Media)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotValor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disciplinas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeAvaliador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraConclusao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorProvaExp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorQuestExp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefBibliograficas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PQuestMultdisc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eqdistvquest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ppquestcontext)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtyQuestoes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Media)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotValor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disciplinas.NomeDisciplina)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AvaliacaoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AvaliacaoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AvaliacaoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

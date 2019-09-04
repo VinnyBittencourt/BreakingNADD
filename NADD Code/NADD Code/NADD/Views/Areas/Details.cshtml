@@ -1,0 +1,24 @@
+﻿@model NADD.Models.Area
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Area</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeArea)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeArea)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AreaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

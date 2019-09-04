@@ -14,6 +14,7 @@ namespace NADD.Mapeamento
         {
             builder.HasKey(d => d.CursoId);
             builder.Property(d => d.NomeCurso).IsRequired();
+            builder.HasIndex(d => d.NomeCurso).IsUnique();
 
             builder.HasOne(tc => tc.Area).WithMany(tc => tc.Curso).HasForeignKey(f => f.AreaId);
             builder.HasMany(tc => tc.Disciplina).WithOne(tc => tc.Curso).OnDelete(DeleteBehavior.Cascade);

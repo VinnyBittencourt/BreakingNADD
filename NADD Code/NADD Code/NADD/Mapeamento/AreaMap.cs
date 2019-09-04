@@ -16,9 +16,10 @@ namespace NADD.Mapeamento
                 //Atributos/Colunas da tabela
                 builder.HasKey(d => d.AreaId);
                 builder.Property(d => d.NomeArea).IsRequired();
+                builder.HasIndex(d => d.NomeArea).IsUnique();
 
                 //Relacionamento
-                builder.HasMany(tc => tc.Curso).WithOne(tc => tc.Area).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(tc => tc.Curso).WithOne(tc => tc.Area).OnDelete(DeleteBehavior.Cascade);
 
                 builder.ToTable("Area");
             }

@@ -14,9 +14,12 @@ namespace NADD.Mapeamento
             {
                 builder.HasKey(d => d.ProfessorId);
                 builder.Property(d => d.NomeProfessor).IsRequired();
+                builder.HasIndex(d => d.NomeProfessor).IsUnique();
                 builder.Property(d => d.EmailProfessor).IsRequired();
+                builder.HasIndex(d => d.EmailProfessor).IsUnique();
                 builder.Property(d => d.TelProfessor).IsRequired();
                 builder.Property(d => d.CpfProfessor).IsRequired();
+                builder.HasIndex(d => d.CpfProfessor).IsUnique();
 
 
 

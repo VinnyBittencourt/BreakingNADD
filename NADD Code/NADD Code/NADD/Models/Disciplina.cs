@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,6 +9,9 @@ namespace NADD.Models
     public class Disciplina 
     {
         public int DisciplinaId { get; set; }
+
+        [Required]
+        [Display(Name = "Nome da Disciplina")]
         public string NomeDisciplina { get; set; }
 
         public int CursoId { get; set; }
@@ -23,11 +27,16 @@ namespace NADD.Models
         public ICollection<Avaliacao> Avaliacao { get; set; }
 
 
-        public Disciplina(int DisciplinaId, string NomeDisciplina, int CursoId)
+        /* public Disciplina(int DisciplinaId, string NomeDisciplina, int CursoId)
         {
             this.DisciplinaId = DisciplinaId;
             this.NomeDisciplina = NomeDisciplina;
             this.CursoId = CursoId;
+        } */
+
+        public Disciplina()
+        {
+           
         }
     }
 }

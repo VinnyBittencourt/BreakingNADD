@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NADD.Models;
 
 namespace NADD.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20190904201955_addunique")]
+    partial class addunique
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,9 +99,6 @@ namespace NADD.Migrations
 
                     b.HasIndex("AreaId");
 
-                    b.HasIndex("NomeCurso")
-                        .IsUnique();
-
                     b.ToTable("Curso");
                 });
 
@@ -117,9 +116,6 @@ namespace NADD.Migrations
                     b.HasKey("DisciplinaId");
 
                     b.HasIndex("CursoId");
-
-                    b.HasIndex("NomeDisciplina")
-                        .IsUnique();
 
                     b.ToTable("Disciplina");
                 });
@@ -156,15 +152,6 @@ namespace NADD.Migrations
                         .IsRequired();
 
                     b.HasKey("ProfessorId");
-
-                    b.HasIndex("CpfProfessor")
-                        .IsUnique();
-
-                    b.HasIndex("EmailProfessor")
-                        .IsUnique();
-
-                    b.HasIndex("NomeProfessor")
-                        .IsUnique();
 
                     b.ToTable("Professor");
                 });

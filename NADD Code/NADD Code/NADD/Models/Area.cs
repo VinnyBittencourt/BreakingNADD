@@ -12,11 +12,11 @@ namespace NADD.Models
 
         public ICollection<Curso> Curso{ get; set; }
 
-        public Area(int AreaId, string nomeArea)
+        /*public Area(int AreaId, string nomeArea)
         {
             this.AreaId = AreaId;
             this.NomeArea = nomeArea;
-        }
+        }*/
 
     }
 }

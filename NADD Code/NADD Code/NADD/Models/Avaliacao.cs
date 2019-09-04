@@ -31,7 +31,7 @@ namespace NADD.Models
         static int TotAvaliacao;
 
 
-        public Avaliacao(string nomeAvaliador, string email, DateTime horaConclusao, int valorProvaExp, int valorQuestExp, string refBibliograficas, string pQuestMultdisc, string eqdistvquest, string ppquestcontext, string observacao)
+        /*public Avaliacao(string nomeAvaliador, string email, DateTime horaConclusao, int valorProvaExp, int valorQuestExp, string refBibliograficas, string pQuestMultdisc, string eqdistvquest, string ppquestcontext, string observacao)
         {
             AvaliacaoId = TotAvaliacao++;
             QtyQuestoes = 0;
@@ -55,6 +55,11 @@ namespace NADD.Models
             HoraInicio = DateTime.Now;
             QtyQuestoes = 0;
             TotValor = 0;
+        } */
+
+        public Avaliacao()
+        {
+
         }
 
 

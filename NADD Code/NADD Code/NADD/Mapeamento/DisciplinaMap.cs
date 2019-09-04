@@ -14,6 +14,7 @@ namespace NADD.Mapeamento
             {
                 builder.HasKey(d => d.DisciplinaId);
                 builder.Property(d => d.NomeDisciplina).IsRequired();
+                builder.HasIndex(d => d.NomeDisciplina).IsUnique();
 
                 builder.HasOne(tc => tc.Curso).WithMany(tc => tc.Disciplina).HasForeignKey(f => f.CursoId);
                 builder.HasMany(s => s.Avaliacao).WithOne(x => x.Disciplinas);
