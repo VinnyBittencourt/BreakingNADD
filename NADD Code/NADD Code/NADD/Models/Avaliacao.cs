@@ -23,7 +23,10 @@ namespace NADD.Models
         public double Media { get; set; }
         public double TotValor { get; set; }
 
+        public int DisciplinaId { get; set; }
+        public Disciplina Disciplinas { get; set; }
 
+        public ICollection<Questoes> Questoes { get; set; }
 
         static int TotAvaliacao;
 

@@ -20,6 +20,8 @@ namespace NADD.Models
 
         public ICollection<DisciplinaProfessor> DisciplinaProfessor { get; set; }
 
+        public ICollection<Avaliacao> Avaliacao { get; set; }
+
 
         public Disciplina(int DisciplinaId, string NomeDisciplina, int CursoId)
         {
