@@ -10,14 +10,22 @@ namespace NADD.Models
         public int DisciplinaId { get; set; }
         public string NomeDisciplina { get; set; }
 
-        internal Curso Curso { get; set; }
+        public int CursoId { get; set; }
+        public Curso Curso { get; set; }
+
+        //public ICollection<Professor> Professores { get; set; }
+
+        //public int ProfessorId { get; set; }
+        //public Professor Professor { get; set; }
+
+        public ICollection<DisciplinaProfessor> DisciplinaProfessor { get; set; }
 
 
-        public Disciplina(int DisciplinaId, string nomeDisciplina, Curso curso)
+        public Disciplina(int DisciplinaId, string NomeDisciplina, int CursoId)
         {
             this.DisciplinaId = DisciplinaId;
-            this.NomeDisciplina = nomeDisciplina;
-            this.Curso = curso;
+            this.NomeDisciplina = NomeDisciplina;
+            this.CursoId = CursoId;
         }
     }
 }

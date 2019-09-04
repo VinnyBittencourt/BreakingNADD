@@ -13,6 +13,13 @@ namespace NADD.Models
         public string TelProfessor { get; set; }
         public string CpfProfessor { get; set; }
 
+        //public int DisciplinaId { get; set; }
+        //public Disciplina Disciplina { get; set; }
+
+        //public ICollection<Disciplina> Disciplinas { get; set; }
+
+        public ICollection<DisciplinaProfessor> DisciplinaProfessor { get; set; }
+
 
         private int idProfessor;
 

@@ -17,6 +17,7 @@ namespace NADD.Models
         public int AreaId { get; set; }
         public Area Area { get; set; }
 
+        public ICollection<Disciplina> Disciplina { get; set; }
 
 
 

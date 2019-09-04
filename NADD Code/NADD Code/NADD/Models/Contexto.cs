@@ -23,6 +23,24 @@ namespace NADD.Models
         {
             modelBuilder.ApplyConfiguration(new AreaMap());
             modelBuilder.ApplyConfiguration(new CursoMap());
+
+
+            /*modelBuilder.Entity<Professor>()
+                .HasMany(c => c.Disciplinas).WithMany(i => i.Professores)
+                .Map(t => t.MapLeftKey("ProfessorID")
+                    .MapRightKey("DisciplinaID")
+                    .ToTable("Professor")); */
+
+            modelBuilder.Entity<DisciplinaProfessor>()
+                .HasKey(bc => new { bc.DisciplinaId, bc.ProfessorId });
+            modelBuilder.Entity<DisciplinaProfessor>()
+                .HasOne(bc => bc.Disciplina)
+                .WithMany(b => b.DisciplinaProfessor)
+                .HasForeignKey(bc => bc.DisciplinaId);
+            modelBuilder.Entity<DisciplinaProfessor>()
+                .HasOne(bc => bc.Professor)
+                .WithMany(c => c.DisciplinaProfessor)
+                .HasForeignKey(bc => bc.ProfessorId);
         }
     }
 }
