@@ -31,7 +31,7 @@ namespace NADD.Models
         static int TotAvaliacao;
 
 
-        public Avaliacao(string nomeAvaliador, string email, DateTime horaConclusao, int valorProvaExp, int valorQuestExp, string refBibliograficas, string pQuestMultdisc, string eqdistvquest, string ppquestcontext, string observacao, Disciplina disciplina)
+        public Avaliacao(string nomeAvaliador, string email, DateTime horaConclusao, int valorProvaExp, int valorQuestExp, string refBibliograficas, string pQuestMultdisc, string eqdistvquest, string ppquestcontext, string observacao)
         {
             AvaliacaoId = TotAvaliacao++;
             QtyQuestoes = 0;
@@ -46,7 +46,6 @@ namespace NADD.Models
             Eqdistvquest = eqdistvquest;
             Ppquestcontext = ppquestcontext;
             Observacao = observacao;
-            Disciplina = disciplina;
             TotValor = 0;
         }
 
@@ -59,7 +58,7 @@ namespace NADD.Models
         }
 
 
-        internal Disciplina Disciplina { get; set; }
+
         internal List<Questoes> VetQuest { get; set; }
 
         public void NovaQuestao(double valor, string tipo, string observacao)

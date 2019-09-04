@@ -21,11 +21,10 @@ namespace NADD.Models
         public ICollection<DisciplinaProfessor> DisciplinaProfessor { get; set; }
 
 
-        private int idProfessor;
 
-        public Professor(int idProfessor, string nomeProfessor, string emailProfessor, string telProfessor, string cpfProfessor)
+        public Professor( string nomeProfessor, string emailProfessor, string telProfessor, string cpfProfessor)
         {
-            this.ProfessorId = idProfessor;
+ 
             this.NomeProfessor = nomeProfessor;
             this.EmailProfessor = emailProfessor;
             this.TelProfessor = telProfessor;

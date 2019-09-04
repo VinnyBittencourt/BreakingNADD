@@ -27,7 +27,7 @@ namespace NADD.Mapeamento
             builder.Property(d => d.Media); ;
             builder.Property(d => d.TotValor);
 
-            builder.HasOne(tc => tc.Disciplina).WithMany(tc => tc.Avaliacao).HasForeignKey(f => f.DisciplinaId);
+            builder.HasOne(tc => tc.Disciplinas).WithMany(tc => tc.Avaliacao).HasForeignKey(f => f.DisciplinaId);
             builder.HasMany(tc => tc.Questoes).WithOne(tc => tc.Avaliacao);
 
             builder.ToTable("Avaliacao");
