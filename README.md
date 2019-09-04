@@ -1,5 +1,5 @@
 # Breaking_NADD - Plataforma de avaliação de provas
- Repositório oficial para trabalhar e atualizar o trabalho do NADD, para o grupo: Guilherme Moura, Frederico Sampaio, Vinicius Marcelo e Vinícius Ataides.
+ Repositório oficial para trabalhar e atualizar o trabalho do NADD, para o grupo: Guilherme Moura, Frederico Sampaio, Vinicius Marcelo e Vinícius de Ataídes Bittencourt.
 
 OBS.: Diagramas e relatório técnico se encontram no perfil do Trello do grupo<br>
 
