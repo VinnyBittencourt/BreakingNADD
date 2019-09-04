@@ -9,6 +9,8 @@ namespace NADD.Models
 {
     public class Contexto : DbContext
     {
+        //Criação das tabelas no BD
+
         public DbSet<Area> Area { get; set; }
         public DbSet<Curso> Curso { get; set; }
         public DbSet<Disciplina> Disciplina { get; set; }
@@ -21,9 +23,16 @@ namespace NADD.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Aplicação dos Relacionamentos das teblas
+
             modelBuilder.ApplyConfiguration(new AreaMap());
             modelBuilder.ApplyConfiguration(new CursoMap());
+            modelBuilder.ApplyConfiguration(new DisciplinaMap());
+            modelBuilder.ApplyConfiguration(new ProfessorMap());
+            modelBuilder.ApplyConfiguration(new AvaliacaoMap());
+            modelBuilder.ApplyConfiguration(new QuestoesMap());
 
+            //Opcoes para Mapeamento
 
             /*modelBuilder.Entity<Professor>()
                 .HasMany(c => c.Disciplinas).WithMany(i => i.Professores)
@@ -31,6 +40,7 @@ namespace NADD.Models
                     .MapRightKey("DisciplinaID")
                     .ToTable("Professor")); */
 
+            //Relationship Many to Many para Disciplina e Professor
             modelBuilder.Entity<DisciplinaProfessor>()
                 .HasKey(bc => new { bc.DisciplinaId, bc.ProfessorId });
             modelBuilder.Entity<DisciplinaProfessor>()

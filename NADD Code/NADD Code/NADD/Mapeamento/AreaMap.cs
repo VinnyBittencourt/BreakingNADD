@@ -13,9 +13,11 @@ namespace NADD.Mapeamento
 
             public void Configure(EntityTypeBuilder<Area> builder)
             {
+                //Atributos/Colunas da tabela
                 builder.HasKey(d => d.AreaId);
                 builder.Property(d => d.NomeArea).IsRequired();
 
+                //Relacionamento
                 builder.HasMany(tc => tc.Curso).WithOne(tc => tc.Area).OnDelete(DeleteBehavior.Cascade);
 
                 builder.ToTable("Area");
