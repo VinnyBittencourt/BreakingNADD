@@ -7,17 +7,14 @@ namespace NADD.Models
 {
     public class Professor
     {
-        private int idProfessor;
-        private string nomeProfessor;
-        private string emailProfessor;
-        private string telProfessor;
-        private string cpfProfessor;
+        public int ProfessorId { get; set; }
+        public string NomeProfessor { get; set; }
+        public string EmailProfessor { get; set; }
+        public string TelProfessor { get; set; }
+        public string CpfProfessor { get; set; }
 
-        public int ProfessorId { get => ProfessorId; set => ProfessorId = value; }
-        public string NomeProfessor { get => nomeProfessor; set => nomeProfessor = value; }
-        public string EmailProfessor { get => emailProfessor; set => emailProfessor = value; }
-        public string TelProfessor { get => telProfessor; set => telProfessor = value; }
-        public string CpfProfessor { get => cpfProfessor; set => cpfProfessor = value; }
+
+        private int idProfessor;
 
         public Professor(int idProfessor, string nomeProfessor, string emailProfessor, string telProfessor, string cpfProfessor)
         {

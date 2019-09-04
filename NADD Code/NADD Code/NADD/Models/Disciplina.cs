@@ -9,8 +9,8 @@ namespace NADD.Models
     {
         public int DisciplinaId { get; set; }
         public string NomeDisciplina { get; set; }
-        internal Curso Curso { get; set; }
 
+        internal Curso Curso { get; set; }
 
 
         public Disciplina(int DisciplinaId, string nomeDisciplina, Curso curso)

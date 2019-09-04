@@ -9,14 +9,11 @@ namespace NADD.Models
     {
 
         private int idUsuario;
-        private string nomeUsuario;
-        private string emailUsuario;
-        private string senhaUsuario;
 
-        public int UsuarioId { get => UsuarioId; set => UsuarioId = value; }
-        public string NomeUsuario { get => nomeUsuario; set => nomeUsuario = value; }
-        public string EmailUsuario { get => emailUsuario; set => emailUsuario = value; }
-        public string SenhaUsuario { get => senhaUsuario; set => senhaUsuario = value; }
+        public int UsuarioId { get; set; }
+        public string NomeUsuario { get; set; }
+        public string EmailUsuario { get; set; }
+        public string SenhaUsuario { get; set; }
 
         public Usuario(int idUsuario, string nomeUsuario, string emailUsuario, string senhaUsuario)
         {
@@ -33,7 +30,7 @@ namespace NADD.Models
         public Usuario(int idUsuario, string nomeUsuario)
         {
             this.idUsuario = idUsuario;
-            this.nomeUsuario = nomeUsuario;
+            this.NomeUsuario = nomeUsuario;
         }
         public virtual void cadastrarArea()
         {

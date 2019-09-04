@@ -14,21 +14,17 @@ namespace NADD.Models
         [StringLength(100, ErrorMessage ="Use menos caracteres.")]
         public String NomeCurso { get; set; }
 
-        //internal Area AreaId { get; set; }
-
-        //public ICollection<Area> Area { get; set; }
-
         public int AreaId { get; set; }
         public Area Area { get; set; }
 
 
 
 
-        public Curso(int CursoId, string nomeCurso, Area idArea)
+        public Curso(int CursoId, string nomeCurso, int AreaId)
         {
             this.CursoId = CursoId;
             this.NomeCurso = nomeCurso;
-            this.AreaId = idArea;
+            this.AreaId = AreaId;
         }
 
     }
