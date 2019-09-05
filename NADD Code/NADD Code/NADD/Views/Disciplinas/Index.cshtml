@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<NADD.Models.Disciplina>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Disciplina";
 }
 
-<h2>Index</h2>
+<h2>Disciplinas</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-info">Nova Disciplina</a>
 </p>
 <table class="table">
     <thead>
@@ -22,20 +22,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeDisciplina)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Curso.NomeCurso)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DisciplinaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DisciplinaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DisciplinaId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeDisciplina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curso.NomeCurso)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DisciplinaId" class="btn btn-success btn-sm">Atualizar</a> |
+                    <a asp-action="Details" asp-route-id="@item.DisciplinaId" class="btn btn-info btn-sm">Informações</a> |
+                    <a asp-action="Delete" asp-route-id="@item.DisciplinaId" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

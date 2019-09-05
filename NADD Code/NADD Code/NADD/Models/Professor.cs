@@ -11,15 +11,19 @@ namespace NADD.Models
         public int ProfessorId { get; set; }
 
         [Required]
+        [Display(Name ="Nome do(a) Professor(ra)")]
         public string NomeProfessor { get; set; }
 
         [Required]
+        [Display(Name = "Email do(a) Professor(ra)")]
         public string EmailProfessor { get; set; }
 
         [Required]
+        [Display(Name = "Telefone do(a) Professor(ra)")]
         public string TelProfessor { get; set; }
 
         [Required]
+        [Display(Name = "CPF do(a) Professor(ra)")]
         public string CpfProfessor { get; set; }
 
         //public int DisciplinaId { get; set; }

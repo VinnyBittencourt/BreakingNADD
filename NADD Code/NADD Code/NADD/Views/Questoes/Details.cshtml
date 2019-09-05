@@ -1,13 +1,13 @@
 ﻿@model NADD.Models.Questoes
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
 }
 
-<h2>Details</h2>
+<h2>Informações</h2>
 
 <div>
-    <h4>Questoes</h4>
+    <h4>Questão</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.QuestoesId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.QuestoesId" class="btn btn-success">Editar Questão</a> |
+    <a asp-action="Index" class="btn btn-default">Voltar</a>
 </div>

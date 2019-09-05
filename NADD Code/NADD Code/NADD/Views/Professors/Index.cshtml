@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<NADD.Models.Professor>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Professores";
 }
 
-<h2>Index</h2>
+<h2>Professores</h2>
+
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-info">Novo Professor</a>
 </p>
 <table class="table">
     <thead>
@@ -28,26 +29,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeProfessor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmailProfessor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelProfessor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CpfProfessor)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProfessorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProfessorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProfessorId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeProfessor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailProfessor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelProfessor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CpfProfessor)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProfessorId" class="btn btn-success btn-sm">Atualizar</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProfessorId" class="btn btn-info btn-sm">Informações</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProfessorId" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
