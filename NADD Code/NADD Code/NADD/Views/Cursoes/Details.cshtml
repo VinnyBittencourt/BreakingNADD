@@ -1,10 +1,10 @@
 ﻿@model NADD.Models.Curso
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
     <h4>Curso</h4>
@@ -25,6 +25,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.CursoId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.CursoId" class="btn btn-success">Editar Curso</a> |
+    <a asp-action="Index" class="btn btn-default">Voltar</a>
 </div>

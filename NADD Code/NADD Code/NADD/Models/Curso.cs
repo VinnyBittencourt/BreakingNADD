@@ -11,6 +11,7 @@ namespace NADD.Models
         public int CursoId { get; set; }
 
         [Required]
+        [Display(Name = "Nome do Curso")]
         [StringLength(100, ErrorMessage ="Use menos caracteres.")]
         public string NomeCurso { get; set; }
 

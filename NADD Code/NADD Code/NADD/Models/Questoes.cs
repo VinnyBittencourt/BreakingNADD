@@ -16,11 +16,16 @@ namespace NADD.Models
         public Avaliacao Avaliacao { get; set; }
 
 
-        public Questoes(double valor, string tipo, string observacao)
+       public Questoes(double valor, string tipo, string observacao)
         {
             Valor = valor;
             Tipo = tipo;
             Observacao = observacao;
+        }
+
+        public Questoes()
+        {
+
         }
     }
 }
