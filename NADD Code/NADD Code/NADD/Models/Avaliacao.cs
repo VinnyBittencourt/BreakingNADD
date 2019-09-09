@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,19 +9,46 @@ namespace NADD.Models
     public class Avaliacao
     {
         public int AvaliacaoId { get; set; }
+
+        [Required]
+        [Display(Name="Nome do Avaliador")]
         public string NomeAvaliador { get; set; }
+
+        [Required]
+        [Display(Name = "Email do Avaliador")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Horario de Início")]
         public DateTime HoraInicio { get; set; }
+
+        [Required]
+        [Display(Name = "Horario de conclusão")]
         public DateTime HoraConclusao { get; set; }
         public int ValorProvaExp { get; set; }
         public int ValorQuestExp { get; set; }
+
+        [Required]
+        [Display(Name = "Referências Bibliográficas")]
         public string RefBibliograficas { get; set; }
         public string PQuestMultdisc { get; set; }
         public string Eqdistvquest { get; set; }
         public string Ppquestcontext { get; set; }
+
+        [Required]
+        [Display(Name = "Observação")]
         public string Observacao { get; set; }
+
+        [Required]
+        [Display(Name = "Quantidade de Questões")]
         public int QtyQuestoes { get; set; }
+
+        [Required]
+        [Display(Name = "Média")]
         public double Media { get; set; }
+
+        [Required]
+        [Display(Name = "Valor Total da Prova")]
         public double TotValor { get; set; }
 
         public int DisciplinaId { get; set; }

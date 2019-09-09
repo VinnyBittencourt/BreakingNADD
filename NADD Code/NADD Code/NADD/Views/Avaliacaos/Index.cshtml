@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<NADD.Models.Avaliacao>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Avaliação";
 }
 
-<h2>Index</h2>
+<h2>Avaliações</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-info  ">Registrar Nova Avaliação</a>
 </p>
 <table class="table">
     <thead>
@@ -109,9 +109,13 @@
                 @Html.DisplayFor(modelItem => item.Disciplinas.NomeDisciplina)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AvaliacaoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AvaliacaoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AvaliacaoId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.AvaliacaoId" class="btn btn-success btn-sm">Atualizar</a> 
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.AvaliacaoId" class="btn btn-info btn-sm">Informações</a> 
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.AvaliacaoId" class="btn btn-danger btn-sm">Excluir</a>
             </td>
         </tr>
 }
