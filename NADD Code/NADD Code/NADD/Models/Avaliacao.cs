@@ -30,50 +30,59 @@ namespace NADD.Models
         [Display(Name = "Valor da prova explícito")]
         public int ValorProvaExp { get; set; }
 
+
+        //Mudar
         [Required(ErrorMessage = "Valor das questões explícitos é necessário")]
         [Display(Name = "Valor das questões explícitos")]
         public int ValorQuestExp { get; set; }
 
+        [Display(Name = "Questões explícitas")]
+        List<string> QuestoesExpl = new List<string>();
+
         //Somatório
 
-        
+
         [Display(Name = "Referências Bibliográficas")]
         public string RefBibliograficas { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Possui questões de múltipla escolha e discursiva?")]
         [Display(Name = "Possui questões de múltipla escolha e discursiva?")]
         public string PQuestMultdisc { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Este campo é necessário")]
         [Display(Name = "Equilíbrio nas distribuições dos valores das questões")]
         public string Eqdistvquest { get; set; }
 
-        [Required]
+        //Adicionado
+        [Required(ErrorMessage = "Este campo é necessário")]
         [Display(Name = "Apresenta, explicitamente, diversificação na avaliação?")]
         public string Aprexplcdiversao { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Este campo é necessário")]
         [Display(Name = "A prova possui, pelo menos, uma questão contextualizada?")]
         public string Ppquestcontext { get; set; }
 
-        [Required]
+        
         [Display(Name = "Observação")]
         public string Observacao { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Este campo é necessário")]
         [Display(Name = "Quantidade de Questões")]
         public int QtyQuestoes { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Este campo é necessário")]
         [Display(Name = "Média")]
         public double Media { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Este campo é necessário")]
         [Display(Name = "Valor Total da Prova")]
         public double TotValor { get; set; }
 
-        public int DisciplinaId { get; set; }
+        public int? DisciplinaId { get; set; }
         public Disciplina Disciplinas { get; set; }
+
+        public int? CursoId { get; set; }
+        public Curso Cursod { get; set; }
 
         public ICollection<Questoes> Questoes { get; set; }
 
