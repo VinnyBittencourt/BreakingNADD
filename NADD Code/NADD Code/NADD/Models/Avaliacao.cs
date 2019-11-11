@@ -10,29 +10,50 @@ namespace NADD.Models
     {
         public int AvaliacaoId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Nome do avaliador é necessário")]
         [Display(Name="Nome do Avaliador")]
         public string NomeAvaliador { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email do avalidor é necessário")]
         [Display(Name = "Email do Avaliador")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Horário de ínicio é necessário")]
         [Display(Name = "Horario de Início")]
         public DateTime HoraInicio { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Horário de conclusão é necessário")]
         [Display(Name = "Horario de conclusão")]
         public DateTime HoraConclusao { get; set; }
+
+        [Required(ErrorMessage = "Valor da prova explícito é necessário")]
+        [Display(Name = "Valor da prova explícito")]
         public int ValorProvaExp { get; set; }
+
+        [Required(ErrorMessage = "Valor das questões explícitos é necessário")]
+        [Display(Name = "Valor das questões explícitos")]
         public int ValorQuestExp { get; set; }
 
-        [Required]
+        //Somatório
+
+        
         [Display(Name = "Referências Bibliográficas")]
         public string RefBibliograficas { get; set; }
+
+        [Required]
+        [Display(Name = "Possui questões de múltipla escolha e discursiva?")]
         public string PQuestMultdisc { get; set; }
+
+        [Required]
+        [Display(Name = "Equilíbrio nas distribuições dos valores das questões")]
         public string Eqdistvquest { get; set; }
+
+        [Required]
+        [Display(Name = "Apresenta, explicitamente, diversificação na avaliação?")]
+        public string Aprexplcdiversao { get; set; }
+
+        [Required]
+        [Display(Name = "A prova possui, pelo menos, uma questão contextualizada?")]
         public string Ppquestcontext { get; set; }
 
         [Required]
