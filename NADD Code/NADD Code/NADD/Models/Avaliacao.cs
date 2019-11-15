@@ -36,8 +36,8 @@ namespace NADD.Models
         [Display(Name = "Valor das questões explícitos")]
         public int ValorQuestExp { get; set; }
 
-        [Display(Name = "Questões explícitas")]
-        List<string> QuestoesExpl = new List<string>();
+        //[Display(Name = "Questões explícitas")]
+        //List<string> QuestoesExpl = new List<string>();
 
         //Somatório
 
@@ -54,9 +54,9 @@ namespace NADD.Models
         public string Eqdistvquest { get; set; }
 
         //Adicionado
-        [Required(ErrorMessage = "Este campo é necessário")]
-        [Display(Name = "Apresenta, explicitamente, diversificação na avaliação?")]
-        public string Aprexplcdiversao { get; set; }
+        //[Required(ErrorMessage = "Este campo é necessário")]
+        //[Display(Name = "Apresenta, explicitamente, diversificação na avaliação?")]
+        //public string Aprexplcdiversao { get; set; }
 
         [Required(ErrorMessage = "Este campo é necessário")]
         [Display(Name = "A prova possui, pelo menos, uma questão contextualizada?")]
@@ -78,11 +78,11 @@ namespace NADD.Models
         [Display(Name = "Valor Total da Prova")]
         public double TotValor { get; set; }
 
-        public int? DisciplinaId { get; set; }
+        public int DisciplinaId { get; set; }
         public Disciplina Disciplinas { get; set; }
 
-        public int? CursoId { get; set; }
-        public Curso Cursod { get; set; }
+        //public int? CursoId { get; set; }
+        //public Curso Cursod { get; set; }
 
         public ICollection<Questoes> Questoes { get; set; }
 
