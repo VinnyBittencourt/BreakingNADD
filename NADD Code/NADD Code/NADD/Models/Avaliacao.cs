@@ -22,6 +22,10 @@ namespace NADD.Models
         public int ProfessorId { get; set; }
         //public Professor Professors { get; set; }
 
+        //Periodo-ano
+        [Display(Name = "Periodo / Ano")]
+        public string PeriodoAno { get; set; }
+
         [Required(ErrorMessage = "Horário de ínicio é necessário")]
         [Display(Name = "Horario de Início")]
         public DateTime HoraInicio { get; set; }

@@ -99,6 +99,9 @@ namespace NADD.Controllers
             {
                 return NotFound();
             }
+            ViewBag.curso = _context.Curso.ToList();
+            ViewData["CursoId"] = new SelectList(ViewBag.curso, "CursoId", "NomeCurso");
+            ViewBag.prof = _context.Professor.ToList();
             ViewData["ProfessorId"] = new SelectList(ViewBag.prof, "ProfessorId", "NomeProfessor", avaliacao.ProfessorId);
             ViewData["DisciplinaId"] = new SelectList(_context.Disciplina, "DisciplinaId", "NomeDisciplina", avaliacao.DisciplinaId);
             return View(avaliacao);
@@ -109,13 +112,14 @@ namespace NADD.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AvaliacaoId,NomeAvaliador,Email,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
+        public async Task<IActionResult> Edit(int id, [Bind("AvaliacaoId,NomeAvaliador,ProfessorId,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
         {
+            
             if (id != avaliacao.AvaliacaoId)
             {
                 return NotFound();
             }
-
+            
             if (ModelState.IsValid)
             {
                 try
@@ -136,6 +140,7 @@ namespace NADD.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            //ViewData["CursoId"] = new SelectList(ViewBag.curso, "CursoId", "NomeCurso");
             ViewData["ProfessorId"] = new SelectList(ViewBag.prof, "ProfessorId", "NomeProfessor", avaliacao.ProfessorId);
             ViewData["DisciplinaId"] = new SelectList(_context.Disciplina, "DisciplinaId", "NomeDisciplina", avaliacao.DisciplinaId);
             return View(avaliacao);

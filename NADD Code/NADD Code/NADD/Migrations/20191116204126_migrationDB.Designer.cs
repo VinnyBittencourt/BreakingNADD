@@ -10,8 +10,8 @@ using NADD.Models;
 namespace NADD.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20191116163521_newDB")]
-    partial class newDB
+    [Migration("20191116204126_migrationDB")]
+    partial class migrationDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,6 +62,8 @@ namespace NADD.Migrations
 
                     b.Property<string>("PQuestMultdisc")
                         .IsRequired();
+
+                    b.Property<string>("PeriodoAno");
 
                     b.Property<string>("Ppquestcontext")
                         .IsRequired();

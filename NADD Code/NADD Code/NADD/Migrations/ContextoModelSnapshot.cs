@@ -61,6 +61,8 @@ namespace NADD.Migrations
                     b.Property<string>("PQuestMultdisc")
                         .IsRequired();
 
+                    b.Property<string>("PeriodoAno");
+
                     b.Property<string>("Ppquestcontext")
                         .IsRequired();
 

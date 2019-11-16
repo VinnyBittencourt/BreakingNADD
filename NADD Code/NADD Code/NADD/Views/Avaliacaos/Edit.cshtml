@@ -18,19 +18,36 @@
                 <input asp-for="NomeAvaliador" class="form-control" />
                 <span asp-validation-for="NomeAvaliador" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
-                <label asp-for="ProfessorId" class="control-label"></label>
-                <input asp-for="ProfessorId" class="form-control" />
-                <span asp-validation-for="ProfessorId" class="text-danger"></span>
+                <label class="control-label">Qual professor criou esta prova? </label>
+                @Html.DropDownList("ProfessorId", null, "Professor", htmlAttributes: new { id = "prof", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label class="control-label">Escolha o curso: </label>
+                @Html.DropDownList("CursoId", null, "Curso", htmlAttributes: new { id = "ddshowTeams", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label class="control-label">Escolha a disciplina: </label>
+                @Html.DropDownList("DisciplinaId", null, "Disciplina", htmlAttributes: new { id = "ddshowMembers", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="PeriodoAno" class="control-label"></label>
+                <input asp-for="PeriodoAno" class="form-control" />
+                <span asp-validation-for="PeriodoAno" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HoraInicio" class="control-label"></label>
-                <input asp-for="HoraInicio" class="form-control" />
+                <input asp-for="HoraInicio" type="date" class="form-control" />
                 <span asp-validation-for="HoraInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HoraConclusao" class="control-label"></label>
-                <input asp-for="HoraConclusao" class="form-control" />
+                <input asp-for="HoraConclusao" type="date" class="form-control" />
                 <span asp-validation-for="HoraConclusao" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -45,7 +62,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="RefBibliograficas" class="control-label"></label>
-                <input asp-for="RefBibliograficas" class="form-control" />
+                <textarea asp-for="RefBibliograficas" class="form-control"></textarea>
                 <span asp-validation-for="RefBibliograficas" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -65,7 +82,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Observacao" class="control-label"></label>
-                <input asp-for="Observacao" class="form-control" />
+                <textarea asp-for="Observacao" class="form-control"></textarea>
                 <span asp-validation-for="Observacao" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -83,11 +100,11 @@
                 <input asp-for="TotValor" class="form-control" />
                 <span asp-validation-for="TotValor" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DisciplinaId" class="control-label"></label>
-                <select asp-for="DisciplinaId" class="form-control" asp-items="ViewBag.DisciplinaId"></select>
-                <span asp-validation-for="DisciplinaId" class="text-danger"></span>
-            </div>
+            @*<div class="form-group">
+            <label asp-for="DisciplinaId" class="control-label"></label>
+            <select asp-for="DisciplinaId" class="form-control" asp-items="ViewBag.DisciplinaId"></select>
+        </div>*@
+
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-success" />
                 <a asp-action="Index" class="btn btn-default">Voltar</a>
@@ -99,3 +116,36 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            //Dropdownlist Selectedchange event
+            $("#ddshowTeams").change(function () {
+                $("#ddshowMembers").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetMembers")',
+                    dataType: 'json',
+                    data: { id: $("#ddshowTeams").val() },
+                    success: function (mems) {
+                        console.log("sucesso no post");
+                        // states contains the JSON formatted list
+                        // of states passed from the controller
+                        $.each(mems, function (i, member) {
+
+                            $("#ddshowMembers").append('<option value="' + member.value + '">'+ member.text + '</option>');
+                        });
+                    },
+                    error: function (ex) {
+                        alert('Failed to retrieve states.' + ex);
+                    }
+                });
+                return false;
+            })
+        });
+</script>

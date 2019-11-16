@@ -24,8 +24,9 @@ namespace NADD.Mapeamento
             builder.Property(d => d.Ppquestcontext);
             builder.Property(d => d.Observacao);
             builder.Property(d => d.QtyQuestoes);
-            builder.Property(d => d.Media); ;
+            builder.Property(d => d.Media);
             builder.Property(d => d.TotValor);
+            builder.Property(d => d.PeriodoAno);
 
             builder.HasOne(tc => tc.Disciplinas).WithMany(tc => tc.Avaliacao).HasForeignKey(f => f.DisciplinaId);
             builder.HasMany(tc => tc.Questoes).WithOne(tc => tc.Avaliacao);
