@@ -39,3 +39,11 @@ body {
 .navbar-inverse{
     background-color: #ccc !important;
 }
+
+.dl-horizontal dt{
+    width: 422px !important;
+}
+
+.dl-horizontal dd {
+    margin-left: 440px !important;
+}

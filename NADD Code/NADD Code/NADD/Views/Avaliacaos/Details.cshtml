@@ -25,13 +25,13 @@
         <dt>
             @Html.DisplayNameFor(model => model.HoraInicio)
         </dt>
-        <dd>
+        <dd id="horainic">
             @Html.DisplayFor(model => model.HoraInicio)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.HoraConclusao)
         </dt>
-        <dd>
+        <dd id="horafim">
             @Html.DisplayFor(model => model.HoraConclusao)
         </dd>
         <dt>
@@ -106,3 +106,27 @@
     <a asp-action="Edit" asp-route-id="@Model.AvaliacaoId" class="btn btn-success">Atualizar</a> |
     <a asp-action="Index" class="btn btn-default">Voltar</a>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script type="text/javascript">
+
+    $('#horainic').text(function (i, text) {
+        var t = $.trim(text);
+        if (t.length > 10) {
+            return $.trim(t).substring(0, 10) + "";
+        }
+        return t;
+    })
+
+    $('#horafim').text(function (i, text) {
+        var t = $.trim(text);
+        if (t.length > 10) {
+            return $.trim(t).substring(0, 10) + "";
+        }
+        return t;
+    })
+
+</script>

@@ -24,12 +24,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="HoraInicio" class="control-label"></label>
-                <input asp-for="HoraInicio" class="form-control" />
+                <input asp-for="HoraInicio" type="date" class="form-control" />
                 <span asp-validation-for="HoraInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HoraConclusao" class="control-label"></label>
-                <input asp-for="HoraConclusao" class="form-control" />
+                <input asp-for="HoraConclusao" type="date" class="form-control" />
                 <span asp-validation-for="HoraConclusao" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -114,10 +114,7 @@
 
         $(document).ready(function () {
             //Dropdownlist Selectedchange event
-
-            console.log('script');
             $("#ddshowTeams").change(function () {
-                console.log("Mudou ");
                 $("#ddshowMembers").empty();
                 $.ajax({
                     type: 'POST',
@@ -126,7 +123,6 @@
                     data: { id: $("#ddshowTeams").val() },
                     success: function (mems) {
                         console.log("sucesso no post");
-                        console.log(mems);
                         // states contains the JSON formatted list
                         // of states passed from the controller
                         $.each(mems, function (i, member) {
