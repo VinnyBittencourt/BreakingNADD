@@ -42,13 +42,7 @@ namespace NADD.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Aprexplcdiversao")
-                        .IsRequired();
-
-                    b.Property<int?>("DisciplinaId");
-
-                    b.Property<string>("Email")
-                        .IsRequired();
+                    b.Property<int>("DisciplinaId");
 
                     b.Property<string>("Eqdistvquest")
                         .IsRequired();
@@ -69,6 +63,8 @@ namespace NADD.Migrations
 
                     b.Property<string>("Ppquestcontext")
                         .IsRequired();
+
+                    b.Property<int>("ProfessorId");
 
                     b.Property<int>("QtyQuestoes");
 
@@ -219,7 +215,8 @@ namespace NADD.Migrations
                 {
                     b.HasOne("NADD.Models.Disciplina", "Disciplinas")
                         .WithMany("Avaliacao")
-                        .HasForeignKey("DisciplinaId");
+                        .HasForeignKey("DisciplinaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("NADD.Models.Curso", b =>

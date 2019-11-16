@@ -56,3 +56,7 @@ body {
 .avaliacao-index__buttons-2 {
     width: 86px !important;
 }
+
+.form-group textarea{
+    height: 125px !important;
+}

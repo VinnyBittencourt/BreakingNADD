@@ -14,9 +14,13 @@ namespace NADD.Models
         [Display(Name="Nome do Avaliador")]
         public string NomeAvaliador { get; set; }
 
-        [Required(ErrorMessage = "Email do avalidor é necessário")]
-        [Display(Name = "Email do Avaliador")]
-        public string Email { get; set; }
+        //[Required(ErrorMessage = "Email do avalidor é necessário")]
+        //[Display(Name = "Email do Avaliador")]
+        //public string Email { get; set; }
+
+        [Display(Name = "Nome do Avaliador")] 
+        public int ProfessorId { get; set; }
+        //public Professor Professors { get; set; }
 
         [Required(ErrorMessage = "Horário de ínicio é necessário")]
         [Display(Name = "Horario de Início")]

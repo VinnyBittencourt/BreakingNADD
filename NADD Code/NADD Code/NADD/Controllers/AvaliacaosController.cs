@@ -47,9 +47,16 @@ namespace NADD.Controllers
         // GET: Avaliacaos/Create
         public IActionResult Create()
         {
+            //Disciplina
             ViewData["DisciplinaId"] = new SelectList(_context.Disciplina, "DisciplinaId", "NomeDisciplina");
-            ViewBag.curso = _context.Curso.ToList();
+
+            //Professores
+            ViewBag.prof = _context.Professor.ToList();
+            ViewData["ProfessorId"] = new SelectList(ViewBag.prof, "ProfessorId", "NomeProfessor");
+
+            //Cursos
             //IEnumerable<object> curs = ViewBag.curso;
+            ViewBag.curso = _context.Curso.ToList();
             ViewData["CursoId"] = new SelectList(ViewBag.curso, "CursoId", "NomeCurso");
             return View();
         }
@@ -59,7 +66,7 @@ namespace NADD.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AvaliacaoId,NomeAvaliador,Email,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
+        public async Task<IActionResult> Create([Bind("AvaliacaoId,NomeAvaliador,ProfessorId,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +74,9 @@ namespace NADD.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-             
+
+            ViewData["ProfessorId"] = new SelectList(ViewBag.prof, "ProfessorId", "NomeProfessor", avaliacao.ProfessorId);
+
             ViewData["DisciplinaId"] = new SelectList(_context.Disciplina, "DisciplinaId", "NomeDisciplina", avaliacao.DisciplinaId);
             return View(avaliacao);
         }
@@ -90,6 +99,7 @@ namespace NADD.Controllers
             {
                 return NotFound();
             }
+            ViewData["ProfessorId"] = new SelectList(ViewBag.prof, "ProfessorId", "NomeProfessor", avaliacao.ProfessorId);
             ViewData["DisciplinaId"] = new SelectList(_context.Disciplina, "DisciplinaId", "NomeDisciplina", avaliacao.DisciplinaId);
             return View(avaliacao);
         }
@@ -126,6 +136,7 @@ namespace NADD.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ProfessorId"] = new SelectList(ViewBag.prof, "ProfessorId", "NomeProfessor", avaliacao.ProfessorId);
             ViewData["DisciplinaId"] = new SelectList(_context.Disciplina, "DisciplinaId", "NomeDisciplina", avaliacao.DisciplinaId);
             return View(avaliacao);
         }
