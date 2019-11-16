@@ -48,6 +48,9 @@ namespace NADD.Controllers
         public IActionResult Create()
         {
             ViewData["DisciplinaId"] = new SelectList(_context.Disciplina, "DisciplinaId", "NomeDisciplina");
+            ViewBag.curso = _context.Curso.ToList();
+            //IEnumerable<object> curs = ViewBag.curso;
+            ViewData["CursoId"] = new SelectList(ViewBag.curso, "CursoId", "NomeCurso");
             return View();
         }
 
@@ -64,9 +67,14 @@ namespace NADD.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            //q
+             
             ViewData["DisciplinaId"] = new SelectList(_context.Disciplina, "DisciplinaId", "NomeDisciplina", avaliacao.DisciplinaId);
             return View(avaliacao);
+        }
+
+        public JsonResult GetMembers(int id)
+        {
+            return Json(new SelectList(_context.Disciplina.Where(empt => (empt.CursoId == id)), "DisciplinaId", "NomeDisciplina"));
         }
 
         // GET: Avaliacaos/Edit/5

@@ -66,7 +66,7 @@ namespace NADD
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Areas}/{action=Index}/{id?}");
+                    template: "{controller=Avaliacaos}/{action=Create}/{id?}");
             });
         }
     }
