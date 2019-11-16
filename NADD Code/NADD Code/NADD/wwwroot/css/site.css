@@ -46,4 +46,13 @@ body {
 
 .dl-horizontal dd {
     margin-left: 440px !important;
+    word-wrap: break-word;
+}
+
+.avaliacao-index__buttons{
+    width: 100px !important;
+}
+
+.avaliacao-index__buttons-2 {
+    width: 86px !important;
 }
