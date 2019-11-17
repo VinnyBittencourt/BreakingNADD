@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NADD.Models;
+using Rotativa.AspNetCore;
 
 namespace NADD
 {
@@ -61,6 +62,8 @@ namespace NADD
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            RotativaConfiguration.Setup(env);
 
             
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NADD.Models;
+using Rotativa.AspNetCore;
 
 namespace NADD.Controllers
 {
@@ -42,6 +43,11 @@ namespace NADD.Controllers
             }
 
             return View(avaliacao);
+        }
+
+        public IActionResult VisualizarPDF()
+        {
+            return new ViewAsPdf("PDF", _context.Avaliacao.ToList()) { FileName = "relatorio.pdf"}  ;
         }
 
         // GET: Avaliacaos/Create

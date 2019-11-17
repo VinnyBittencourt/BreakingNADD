@@ -32,15 +32,18 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Disciplinas.NomeDisciplina)
-            </td>           
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PeriodoAno)
             </td>
             <td class="avaliacao-index__buttons-2">
-                <a asp-action="Edit" asp-route-id="@item.AvaliacaoId" class="btn btn-success btn-sm">Atualizar</a> 
+                <a asp-action="VisualizarPDF" asp-route-id="@item.AvaliacaoId" class="btn btn-danger btn-sm">PDF</a>
+            </td>
+            <td class="avaliacao-index__buttons-2">
+                <a asp-action="Edit" asp-route-id="@item.AvaliacaoId" class="btn btn-success btn-sm">Atualizar</a>
             </td>
             <td class="avaliacao-index__buttons">
-                <a asp-action="Details" asp-route-id="@item.AvaliacaoId" class="btn btn-info btn-sm">Informações</a> 
+                <a asp-action="Details" asp-route-id="@item.AvaliacaoId" class="btn btn-info btn-sm">Informações</a>
             </td>
             <td class="avaliacao-index__buttons">
                 <a asp-action="Delete" asp-route-id="@item.AvaliacaoId" class="btn btn-danger btn-sm">Excluir</a>
