@@ -16,10 +16,10 @@
                 @Html.DisplayNameFor(model => model.NomeAvaliador)
             </th>
             <th>
-                Nome do Professor
+                @Html.DisplayNameFor(model => model.Disciplinas)
             </th>           
             <th>
-                @Html.DisplayNameFor(model => model.Disciplinas)
+                @Html.DisplayNameFor(model => model.PeriodoAno)
             </th>
             <th></th>
         </tr>
@@ -31,10 +31,10 @@
                 @Html.DisplayFor(modelItem => item.NomeAvaliador)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProfessorId)
+                @Html.DisplayFor(modelItem => item.Disciplinas.NomeDisciplina)
             </td>           
             <td>
-                @Html.DisplayFor(modelItem => item.Disciplinas.NomeDisciplina)
+                @Html.DisplayFor(modelItem => item.PeriodoAno)
             </td>
             <td class="avaliacao-index__buttons-2">
                 <a asp-action="Edit" asp-route-id="@item.AvaliacaoId" class="btn btn-success btn-sm">Atualizar</a> 
