@@ -66,7 +66,7 @@ namespace NADD.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AvaliacaoId,NomeAvaliador,ProfessorId,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
+        public async Task<IActionResult> Create([Bind("AvaliacaoId,NomeAvaliador,ProfessorId,PeriodoAno,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +112,7 @@ namespace NADD.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AvaliacaoId,NomeAvaliador,ProfessorId,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
+        public async Task<IActionResult> Edit(int id, [Bind("AvaliacaoId,NomeAvaliador,ProfessorId,PeriodoAno,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
         {
             
             if (id != avaliacao.AvaliacaoId)
