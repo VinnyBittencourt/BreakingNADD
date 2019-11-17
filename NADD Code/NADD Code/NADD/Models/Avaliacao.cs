@@ -26,13 +26,13 @@ namespace NADD.Models
         [Display(Name = "Periodo / Ano")]
         public string PeriodoAno { get; set; }
 
-        [Required(ErrorMessage = "Horário de ínicio é necessário")]
-        [Display(Name = "Horario de Início")]
-        public DateTime HoraInicio { get; set; }
+        //[Required(ErrorMessage = "Horário de ínicio é necessário")]
+        //[Display(Name = "Horario de Início")]
+        //public DateTime HoraInicio { get; set; }
 
-        [Required(ErrorMessage = "Horário de conclusão é necessário")]
-        [Display(Name = "Horario de conclusão")]
-        public DateTime HoraConclusao { get; set; }
+        //[Required(ErrorMessage = "Horário de conclusão é necessário")]
+        //[Display(Name = "Horario de conclusão")]
+        //public DateTime HoraConclusao { get; set; }
 
         [Required(ErrorMessage = "Valor da prova explícito é necessário")]
         [Display(Name = "Valor da prova explícito")]

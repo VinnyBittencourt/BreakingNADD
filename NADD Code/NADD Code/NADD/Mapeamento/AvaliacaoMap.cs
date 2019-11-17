@@ -15,8 +15,8 @@ namespace NADD.Mapeamento
             builder.HasKey(d => d.AvaliacaoId);
             builder.Property(d => d.NomeAvaliador).IsRequired();
             builder.Property(d => d.ProfessorId);
-            builder.Property(d => d.HoraInicio).IsRequired();
-            builder.Property(d => d.HoraConclusao).IsRequired();
+            //builder.Property(d => d.HoraInicio).IsRequired();
+            //builder.Property(d => d.HoraConclusao).IsRequired();
             builder.Property(d => d.ValorProvaExp).IsRequired();
             builder.Property(d => d.RefBibliograficas);
             builder.Property(d => d.PQuestMultdisc);

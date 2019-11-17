@@ -56,8 +56,10 @@ namespace NADD.Controllers
 
             //Cursos
             //IEnumerable<object> curs = ViewBag.curso;
-            ViewBag.curso = _context.Curso.ToList();
+            ViewBag.curso = _context.Curso.ToList();            
             ViewData["CursoId"] = new SelectList(ViewBag.curso, "CursoId", "NomeCurso");
+
+            
             return View();
         }
 
@@ -66,7 +68,7 @@ namespace NADD.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AvaliacaoId,NomeAvaliador,ProfessorId,PeriodoAno,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
+        public async Task<IActionResult> Create([Bind("AvaliacaoId,NomeAvaliador,ProfessorId,PeriodoAno,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +114,7 @@ namespace NADD.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AvaliacaoId,NomeAvaliador,ProfessorId,PeriodoAno,HoraInicio,HoraConclusao,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
+        public async Task<IActionResult> Edit(int id, [Bind("AvaliacaoId,NomeAvaliador,ProfessorId,PeriodoAno,ValorProvaExp,ValorQuestExp,RefBibliograficas,PQuestMultdisc,Eqdistvquest,Ppquestcontext,Observacao,QtyQuestoes,Media,TotValor,DisciplinaId")] Avaliacao avaliacao)
         {
             
             if (id != avaliacao.AvaliacaoId)
