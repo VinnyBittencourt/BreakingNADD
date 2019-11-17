@@ -37,7 +37,7 @@
                 @Html.DisplayFor(modelItem => item.PeriodoAno)
             </td>
             <td class="avaliacao-index__buttons-2">
-                <a asp-action="VisualizarPDF" asp-route-id="@item.AvaliacaoId" class="btn btn-danger btn-sm">PDF</a>
+                <a asp-action="AvaliacaoPDF" asp-route-id="@item.AvaliacaoId" class="btn btn-danger btn-sm">PDF</a>
             </td>
             <td class="avaliacao-index__buttons-2">
                 <a asp-action="Edit" asp-route-id="@item.AvaliacaoId" class="btn btn-success btn-sm">Atualizar</a>

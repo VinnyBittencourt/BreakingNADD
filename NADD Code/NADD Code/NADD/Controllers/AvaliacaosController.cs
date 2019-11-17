@@ -45,9 +45,12 @@ namespace NADD.Controllers
             return View(avaliacao);
         }
 
-        public IActionResult VisualizarPDF()
+        //POST
+        [ActionName("AvaliacaoPDF")]
+        public IActionResult VisualizarPDF(long? id)
         {
-            return new ViewAsPdf("PDF", _context.Avaliacao.ToList()) { FileName = "relatorio.pdf"}  ;
+            var avali = _context.Avaliacao.Where(a => a.AvaliacaoId == id).ToList();
+            return new ViewAsPdf("PDF", avali) { FileName = "relatorio.pdf"}  ;
         }
 
         // GET: Avaliacaos/Create
