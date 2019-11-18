@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="NomeProfessor" class="control-label"></label>
-                <input asp-for="NomeProfessor" class="form-control" />
+                <input id="nome" asp-for="NomeProfessor" class="form-control" />
                 <span asp-validation-for="NomeProfessor" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -24,12 +24,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="TelProfessor" class="control-label"></label>
-                <input asp-for="TelProfessor" class="form-control" />
+                <input id="cel" asp-for="TelProfessor" class="form-control" />
                 <span asp-validation-for="TelProfessor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CpfProfessor" class="control-label"></label>
-                <input asp-for="CpfProfessor" class="form-control" />
+                <input id="CPFCNPJ" asp-for="CpfProfessor" class="form-control" />
                 <span asp-validation-for="CpfProfessor" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,3 +44,49 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js" /></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script type="text/javascript">
+    $("#CPFCNPJ").mask("999.999.999-99");
+
+
+    //Mascara telefone
+    var behavior = function (val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    },
+        options = {
+            onKeyPress: function (val, e, field, options) {
+                field.mask(behavior.apply({}, arguments), options);
+            }
+        };
+    $('#cel').mask(behavior, options);
+
+
+    //Nome com apenas letras
+    $("#nome").on("input", function () {
+        var regexp = /[^a-zA-Z áéíóúÁÉÍÓÚÃÕãõ'çâÂêÊîÎôÔûÛäëïöüÄËÏÖÜ]/g;
+        if (this.value.match(regexp)) {
+            $(this).val(this.value.replace(regexp, ""));
+        }
+    });
+
+    //Apenas números
+    $("#CPFCNPJ").on("input", function () {
+        var regexp = /[^0-9]/g;
+        if (this.value.match(regexp)) {
+            $(this).val(this.value.replace(regexp, ""));
+        }
+    });
+
+
+
+    //function validaEmail(email) {
+    //    var regex = /^([\w-]+(?:\.[\w-]+)*)@@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    //    return regex.test(email);
+    //}
+</script>

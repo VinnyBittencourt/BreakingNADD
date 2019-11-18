@@ -10,6 +10,7 @@ namespace NADD.Models
     {
         public int AreaId { get; set; }
 
+        [Required(ErrorMessage = "Nome da área é necessário")]
         [Display(Name="Nome da Area")]
         public string NomeArea { get; set; }
 

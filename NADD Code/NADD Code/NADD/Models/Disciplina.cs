@@ -10,7 +10,7 @@ namespace NADD.Models
     {
         public int DisciplinaId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Nome da disciplina é necessário")]
         [Display(Name = "Nome da Disciplina")]
         public string NomeDisciplina { get; set; }
 

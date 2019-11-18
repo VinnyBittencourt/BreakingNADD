@@ -10,19 +10,19 @@ namespace NADD.Models
     {
         public int ProfessorId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Nome do Professor é necessário")]
         [Display(Name ="Nome do(a) Professor(a)")]
         public string NomeProfessor { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email do Professor é necessário")]
         [Display(Name = "Email do(a) Professor(a)")]
         public string EmailProfessor { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Número do Professor é necessário")]
         [Display(Name = "Telefone do(a) Professor(a)")]
         public string TelProfessor { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "CPF do Professor é necessário")]
         [Display(Name = "CPF do(a) Professor(a)")]
         public string CpfProfessor { get; set; }
 

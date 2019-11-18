@@ -10,7 +10,7 @@ namespace NADD.Models
     {
         public int CursoId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Nome do curso é necessário")]
         [Display(Name = "Nome do Curso")]
         [StringLength(100, ErrorMessage ="Use menos caracteres.")]
         public string NomeCurso { get; set; }
