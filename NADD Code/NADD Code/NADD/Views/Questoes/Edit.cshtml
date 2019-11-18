@@ -5,30 +5,30 @@
     ViewData["Title"] = "Edit";
 }
 
-<p class="sub-titulo">Editar Questão</p>
+<h3 class="sub-titulo">Editar Questão</h3>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="QuestoesId" />
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-12">
                 <label asp-for="NumeroQuestao" class="control-label"></label>
                 <input asp-for="NumeroQuestao" class="form-control" />
                 <span asp-validation-for="NumeroQuestao" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-12">
                 <label asp-for="Valor" class="control-label"></label>
                 <input asp-for="Valor" class="form-control" />
                 <span asp-validation-for="Valor" class="text-danger"></span>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-12">
                 <label asp-for="Tipo" class="control-label"></label>
                 <select asp-for="Tipo" class="form-control">
                     <option value="1">Textual</option>
                     <option value="2">Multipla escolha</option>
                 </select>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-12">
                 <label asp-for="Observacao" class="control-label"></label>
                 <input asp-for="Observacao" class="form-control" />
                 <span asp-validation-for="Observacao" class="text-danger"></span>
@@ -41,11 +41,11 @@
             <input type="hidden" asp-for="AvaliacaoId" />
             <div class="col-md-12">
                 <div class="">
-                    <a asp-action="Index" class="col-md-2 btn btn-primary">Voltar</a>
+                    <a asp-action="Index" class="col-md-4 btn btn-primary" style="margin-right: 20px;">Voltar</a>
                 </div>
-                <div class="col-md-8"></div>
+                @*<div class="col-md-8"></div>*@
                 <div class="form-group">
-                    <input type="submit" value="Editar" class="col-md-2 btn btn-default btn btn-success " />
+                    <input type="submit" value="Editar" class="col-md-4 btn btn-default btn btn-success " />
                 </div>
             </div>
         </form>

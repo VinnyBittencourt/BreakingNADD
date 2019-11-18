@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NADD.Models;
+using NADD.Models.Infra;
 using Rotativa.AspNetCore;
 
 namespace NADD
@@ -33,8 +35,14 @@ namespace NADD
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddIdentity<UsuarioDaAplicacao, IdentityRole>().AddEntityFrameworkStores<Contexto>().AddDefaultTokenProviders();
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Infra/Acessar";
+                options.AccessDeniedPath = "/Infra/AcessoNegado";
+            });
 
-            services.AddDbContext<Contexto>(opcoes => opcoes.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<Contexto>(opcoes => opcoes.UseSqlServer(Configuration.GetConnectionString("conec")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -62,6 +70,7 @@ namespace NADD
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             RotativaConfiguration.Setup(env);
 
@@ -71,7 +80,7 @@ namespace NADD
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Avaliacaos}/{action=Create}/{id?}");
+                    template: "{controller=Areas}/{action=Index}/{id?}");
             });
         }
     }

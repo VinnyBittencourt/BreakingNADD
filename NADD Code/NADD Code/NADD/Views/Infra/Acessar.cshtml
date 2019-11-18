@@ -1,0 +1,56 @@
+﻿@model NADD.Models.Infra.AcessaViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="">
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+
+        <div class="col-md-4">
+            <section>
+                <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                    <div asp-validation-summary="All" class="text-danger">
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Senha" class="control-label"></label>
+                        <input asp-for="Senha" class="form-control" />
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="LembrarDeMim" class="control-label"></label>
+                        <input asp-for="LembrarDeMim" class="form-control" />
+                        <span asp-validation-for="LembrarDeMim" class="text-danger"></span>
+                    </div>
+
+                    <div>
+                        <button type="submit">submit</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a asp-action="RegistrarNovoUsuario" asp-route-returnurl="@ViewData["ReturnUrl"]"> Registrar novo?</a>
+                        </p>
+                    </div>
+                </form>
+            </section>
+
+
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

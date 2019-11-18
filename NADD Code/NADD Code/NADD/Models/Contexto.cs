@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NADD.Mapeamento;
+using NADD.Models.Infra;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace NADD.Models
 {
-    public class Contexto : DbContext
+    public class Contexto : IdentityDbContext<UsuarioDaAplicacao>
     {
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //}
         //Criação das tabelas no BD
 
         public DbSet<Area> Area { get; set; }
@@ -23,6 +29,7 @@ namespace NADD.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             //Aplicação dos Relacionamentos das teblas
 
             modelBuilder.ApplyConfiguration(new AreaMap());

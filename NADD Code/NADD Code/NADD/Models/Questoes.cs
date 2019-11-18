@@ -9,12 +9,15 @@ namespace NADD.Models
     public class Questoes
     {
         public int QuestoesId { get; set; }
+        [Required(ErrorMessage = "Número questão é necessário")]
         [Display(Name = "Numero da Questão")]
         public string NumeroQuestao { get; set; }
+        [Required(ErrorMessage = "Valor questão é necessário")]
         [Display(Name = "Valor da Questão")]
         public double Valor { get; set; }
         [Display(Name = "Tipo de Questão")]
         public string Tipo { get; set; }
+        [Required(ErrorMessage = "Precisa de uma observação ou opnião sobre a questão")]
         [Display(Name = "Observação da Questão")]
         public string Observacao { get; set; }
         [Display(Name = "Questão Contextualizada?")]

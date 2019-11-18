@@ -12,14 +12,19 @@
     }
 }
 <!--<p class="sub-titulo">Controle de Questões</p>-->
-<p class="sub-titulo">Listagem de Questões</p>
+<h3 class="sub-titulo">Listagem de Questões</h3>
+
+<div class="col-md-8" style="margin-top:20px; margin-bottom: 20px;">
+    <a asp-action="Create" id="addQuestao" class="btn btn-info sm-lg col-md-4 m-b-5"> <span class="glyphicon glyphicon-plus"></span> Registrar nova questão</a>
+    <div class="col-md-12"></div>
+</div>
 <table class="table">
     <thead>
         <tr>
             <!--<th>Id Questao</th>-->
             <th>Número Questão</th>
             <th>Tipo Questão</th>
-            <th>Obs.</th>
+            <th>Observações</th>
             <th></th>
             <th></th>
         </tr>
@@ -42,7 +47,7 @@
                 <td class="col-md-3">@Html.DisplayFor(modelItem => item.Observacao)</td>
                 <td class="col-md-3">@Html.DisplayFor(modelItem => item.Avaliacao.PeriodoAno)</td>
                 <td class="col-md-3">
-                    <a href="/Questoes/Edit/@item.QuestoesId" class="col-md-12 btn btn-primary">Editar</a>
+                    <a href="/Questoes/Edit/@item.QuestoesId" class="col-md-12 btn btn-success">Atualizar</a>
                 </td>
                 <td class="col-md-3"><a href="/Questoes/Delete/@item.QuestoesId" class="col-md-12 btn btn-danger">Deletar</a></td>
 
@@ -50,8 +55,3 @@
         }
     </tbody>
 </table>
-<div class="col-md-12">
-    <a asp-action="Create" id="addQuestao" class="btn btn-info btn-lg col-md-4"> <span class="glyphicon glyphicon-plus"></span> Adicionar Questão</a>
-    <div class="col-md-4"></div>
-    <a href="/Avaliacaos/finalizarProva/@avaId" id="addQuestao" class="btn btn-success btn-lg col-md-4"> <span class="	glyphicon glyphicon-ok"></span> Considerações finais da Avaliação </a>
-</div>
