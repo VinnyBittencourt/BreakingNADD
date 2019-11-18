@@ -42,7 +42,7 @@ namespace NADD.Controllers
                 return NotFound();
             }
 
-            
+            ViewData["Professor"] = _context.Professor.Where(a => a.ProfessorId == avaliacao.ProfessorId).Select(a => a.NomeProfessor).FirstOrDefault();
 
             return View(avaliacao);
         }
@@ -51,6 +51,8 @@ namespace NADD.Controllers
         [ActionName("AvaliacaoPDF")]
         public IActionResult VisualizarPDF(long? id)
         {
+            var aval = _context.Avaliacao.Where(a => a.AvaliacaoId == id).FirstOrDefault();
+            ViewBag.proftest = _context.Professor.Where(a => a.ProfessorId == aval.ProfessorId).Select(a => a.NomeProfessor).FirstOrDefault();
             var avali = _context.Avaliacao.Where(a => a.AvaliacaoId == id).ToList();
             return new ViewAsPdf("PDF", avali) { FileName = "relatorio.pdf"}  ;
         }
