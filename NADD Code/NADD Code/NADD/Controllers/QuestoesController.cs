@@ -68,14 +68,14 @@ namespace NADD.Controllers
         //    return View(questoes);
         //}
 
-        // GET: Questoes1/Create
+        // GET: Questoes/Create
         public IActionResult Create()
         {
             ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "PeriodoAno");
             return View();
         }
 
-        // POST: Questoes1/Create
+        // POST: Questoes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -93,6 +93,60 @@ namespace NADD.Controllers
             return View(questoes);
         }
 
+        //// GET: Questoes/Edit/5
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var questoes = await _context.Questoes.FindAsync(id);
+        //    if (questoes == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "Email", questoes.AvaliacaoId);
+        //    return View(questoes);
+        //}
+
+        //// POST: Questoes/Edit/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(int id, [Bind("QuestoesId,Valor,Tipo,Observacao,AvaliacaoId")] Questoes questoes)
+        //{
+        //    if (id != questoes.QuestoesId)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _context.Update(questoes);
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!QuestoesExists(questoes.QuestoesId))
+        //            {
+        //                return NotFound();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "Email", questoes.AvaliacaoId);
+        //    return View(questoes);
+        //}
+
+
         // GET: Questoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -106,7 +160,7 @@ namespace NADD.Controllers
             {
                 return NotFound();
             }
-            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "Email", questoes.AvaliacaoId);
+            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "PeriodoAno", questoes.AvaliacaoId);
             return View(questoes);
         }
 
@@ -115,7 +169,7 @@ namespace NADD.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("QuestoesId,Valor,Tipo,Observacao,AvaliacaoId")] Questoes questoes)
+        public async Task<IActionResult> Edit(int id, [Bind("QuestoesId,NumeroQuestao,Valor,Tipo,Observacao,AvaliacaoId")] Questoes questoes)
         {
             if (id != questoes.QuestoesId)
             {
@@ -140,9 +194,10 @@ namespace NADD.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return Redirect("/Questoes/ListaQuestoes/" + questoes.AvaliacaoId);
             }
-            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "Email", questoes.AvaliacaoId);
+            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "PeriodoAno", questoes.AvaliacaoId);
             return View(questoes);
         }
 
@@ -173,7 +228,8 @@ namespace NADD.Controllers
             var questoes = await _context.Questoes.FindAsync(id);
             _context.Questoes.Remove(questoes);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));
+            return Redirect("/Questoes/ListaQuestoes/" + questoes.AvaliacaoId);
         }
 
         private bool QuestoesExists(int id)
@@ -211,7 +267,7 @@ namespace NADD.Controllers
             return View(await contexto.ToListAsync());*/
             var questoes = _context.Questoes.Where(a => a.AvaliacaoId == id).ToList();
 
-            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "Periodo");
+            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "PeriodoAno");
 
             return View(questoes);
         }
