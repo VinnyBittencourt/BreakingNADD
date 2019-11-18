@@ -44,27 +44,52 @@ namespace NADD.Controllers
             return View(questoes);
         }
 
-        // GET: Questoes/Create
+        //// GET: Questoes/Create
+        //public IActionResult Create()
+        //{
+        //    ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "Email");
+        //    return View();
+        //}
+
+        //// POST: Questoes/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("QuestoesId,Valor,Tipo,Observacao,AvaliacaoId")] Questoes questoes)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(questoes);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "PeriodoAno", questoes.AvaliacaoId);
+        //    return View(questoes);
+        //}
+
+        // GET: Questoes1/Create
         public IActionResult Create()
         {
-            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "Email");
+            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "PeriodoAno");
             return View();
         }
 
-        // POST: Questoes/Create
+        // POST: Questoes1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("QuestoesId,Valor,Tipo,Observacao,AvaliacaoId")] Questoes questoes)
+        public async Task<IActionResult> Create([Bind("QuestoesId,NumeroQuestao,Valor,Tipo,Observacao,AvaliacaoId")] Questoes questoes)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(questoes);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(listaQuestoes));
+                return Redirect("/Questoes/ListaQuestoes/" + questoes.AvaliacaoId);
             }
-            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "Email", questoes.AvaliacaoId);
+            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "PeriodoAno", questoes.AvaliacaoId);
             return View(questoes);
         }
 
@@ -154,6 +179,41 @@ namespace NADD.Controllers
         private bool QuestoesExists(int id)
         {
             return _context.Questoes.Any(e => e.QuestoesId == id);
+        }
+
+        // GET: Questoes/Verifica/5
+        public async Task<IActionResult> Verifica(long? id)
+        {
+            if (id != null)
+            {
+                var questoes = _context.Questoes.Where(a => a.AvaliacaoId == id).FirstOrDefault();
+
+                if (questoes == null)
+                {
+                    return RedirectToAction(nameof(Create));
+                }
+                else
+                {
+                    return Redirect("/Questoes/ListaQuestoes/" + id);
+                }
+            }
+            else
+            {
+                return View(id);
+            }
+        }
+
+        [ActionName("listaQuestoes")]
+        // GET: Questoes/listaQuestoes/5
+        public async Task<IActionResult> listaQuestoes(long? id)
+        {
+            /*var contexto = _context.Questoes.Include(a => a.Avaliacao);
+            return View(await contexto.ToListAsync());*/
+            var questoes = _context.Questoes.Where(a => a.AvaliacaoId == id).ToList();
+
+            ViewData["AvaliacaoId"] = new SelectList(_context.Avaliacao, "AvaliacaoId", "Periodo");
+
+            return View(questoes);
         }
     }
 }

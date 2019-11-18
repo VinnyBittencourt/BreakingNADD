@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NADD.Migrations
 {
-    public partial class vaiDB : Migration
+    public partial class vaiiii : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -153,9 +153,14 @@ namespace NADD.Migrations
                 {
                     QuestoesId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    NumeroQuestao = table.Column<string>(nullable: true),
                     Valor = table.Column<double>(nullable: false),
                     Tipo = table.Column<string>(nullable: false),
                     Observacao = table.Column<string>(nullable: false),
+                    Contextualizada = table.Column<string>(nullable: true),
+                    Clareza = table.Column<string>(nullable: true),
+                    Complexibilidade = table.Column<string>(nullable: true),
+                    status = table.Column<string>(nullable: true),
                     AvaliacaoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

@@ -9,8 +9,8 @@ using NADD.Models;
 namespace NADD.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20191117014126_vaiDB")]
-    partial class vaiDB
+    [Migration("20191118002359_vaiiii")]
+    partial class vaiiii
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -178,6 +178,14 @@ namespace NADD.Migrations
 
                     b.Property<int>("AvaliacaoId");
 
+                    b.Property<string>("Clareza");
+
+                    b.Property<string>("Complexibilidade");
+
+                    b.Property<string>("Contextualizada");
+
+                    b.Property<string>("NumeroQuestao");
+
                     b.Property<string>("Observacao")
                         .IsRequired();
 
@@ -185,6 +193,8 @@ namespace NADD.Migrations
                         .IsRequired();
 
                     b.Property<double>("Valor");
+
+                    b.Property<string>("status");
 
                     b.HasKey("QuestoesId");
 

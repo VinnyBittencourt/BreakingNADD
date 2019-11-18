@@ -132,14 +132,14 @@ namespace NADD.Models
 
         internal List<Questoes> VetQuest { get; set; }
 
-        public void NovaQuestao(double valor, string tipo, string observacao)
-        {
-            Questoes questao = new Questoes(valor, tipo, observacao);
-            VetQuest.Add(questao);
-            QtyQuestoes += 1;
-            ValorTotal();
-            MediaAvaliacao();
-        }
+        //public void NovaQuestao(double valor, string tipo, string observacao)
+        //{
+        //    Questoes questao = new Questoes(valor, tipo, observacao);
+        //    VetQuest.Add(questao);
+        //    QtyQuestoes += 1;
+        //    ValorTotal();
+        //    MediaAvaliacao();
+        //}
 
         public double ValorTotal()
         {

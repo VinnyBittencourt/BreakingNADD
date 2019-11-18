@@ -176,6 +176,14 @@ namespace NADD.Migrations
 
                     b.Property<int>("AvaliacaoId");
 
+                    b.Property<string>("Clareza");
+
+                    b.Property<string>("Complexibilidade");
+
+                    b.Property<string>("Contextualizada");
+
+                    b.Property<string>("NumeroQuestao");
+
                     b.Property<string>("Observacao")
                         .IsRequired();
 
@@ -183,6 +191,8 @@ namespace NADD.Migrations
                         .IsRequired();
 
                     b.Property<double>("Valor");
+
+                    b.Property<string>("status");
 
                     b.HasKey("QuestoesId");
 
